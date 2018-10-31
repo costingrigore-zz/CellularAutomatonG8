@@ -77,33 +77,33 @@ int rules(int left, int middle, int right)
 }
 
 //I based this method on this reference: https://www.sanfoundry.com/c-program-binary-number-into-decimal/
-int convert( int[] num)
-{
+// int convert( int num)
+// {
 
-    int decimal_val = 0, base = 1, rem;
+//     int decimal_val = 0, base = 1, rem;
 
- 	int original = num;
+//  	int original = num;
 
-    while (num > 0)
+//     while (num > 0)
 
-    {
+//     {
 
-        rem = num % 10;
+//         rem = num % 10;
 
-        decimal_val = decimal_val + rem * base;
+//         decimal_val = decimal_val + rem * base;
 
-        num = num / 10 ;
+//         num = num / 10 ;
 
-        base = base * 2;
+//         base = base * 2;
 
-    }
+//     }
 
-    printf("The Binary number is = %d \n", original);
+//     printf("The Binary number is = %d \n", original);
 
-    printf("Its decimal equivalent is = %d \n", decimal_val);
+//     printf("Its decimal equivalent is = %d \n", decimal_val);
 
-    original=0;
-}
+//     original=0;
+// }
 int main ()
 {
     checkValues();

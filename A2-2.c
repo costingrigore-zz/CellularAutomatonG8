@@ -92,6 +92,28 @@ void custom30()
 	
 }
 
+//I based this method on this reference: https://www.quora.com/How-do-you-convert-a-binary-number-to-decimal-in-C-programming
+int convert()
+{
+
+    long int binaryNumber,decimalNumber=0,j=1,remainder;
+    
+    printf("Enter a binary number of your choice: ");
+    scanf("%ld",&binaryNumber);
+    
+    while(binaryNumber!=0){
+    
+        remainder=binaryNumber%10;
+        decimalNumber=decimalNumber+remainder*j;
+        j=j*2;
+        binaryNumber=binaryNumber/10;
+    }
+    
+    printf("Equivalent decimal value: %ld \n",decimalNumber);
+    
+    return 0;
+}
+
 /*
 int menu()
 {
@@ -99,25 +121,29 @@ int menu()
 		printf("Welcome to the menu!, please use on of the options below \n");
 		printf("1: Rule 30 Automatom \n");
 		printf("2: Custom size rule 30 Automatom \n");
-		printf("2: Exit");
+		printf("3: Convert a binary number to a decimal number \n");
+		printf("4: Exit");
 		scanf("%d", &n);
 		switch (n)
 	​	{
 			case 1:
-			auto30();
+				auto30();
 			break;
-	    		case 2:
-			custom30();
+	    	case 2:
+				custom30();
 			break;
 			case 3:
-			printf("Exiting");
+				convert();
 			break;
-	    		default:
+			case 4:
+				printf("Exiting");
+			break;
+	    	default:
 			printf("This isn't a valid option, please try again");
 		}
 }
 */
-int main ()
+int main()
 {
     custom30();
 	return 1;
