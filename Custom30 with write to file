@@ -1,0 +1,83 @@
+void custom30()
+{
+    int height;
+    int length;
+    printf("Please select a width across the page: \n");
+    scanf("%d", &length);
+    printf("Please select the depth down the page: \n");
+    scanf("%d", &height);
+    
+    int parent[length];
+    int child[length];
+    
+    for(int i = 0; i < length; i++)
+    {
+        if((length/2) == i)
+        {
+            parent[i] = 1;
+        }
+        else
+        {
+            parent[i] = 0;
+        }
+    }
+    printf("\n");
+    
+    //Pointer for opening the file
+    FILE *f = fopen("output.txt", "a");
+    
+    //Check it has opended
+    if (f == NULL)
+    {
+        printf("Error opening file!\n");
+        exit(1);
+    }
+    
+    //Print the parent line
+    for(int i = 0; i < length; i++)
+    {
+        fprintf(f, "%d", parent[i]);
+    }
+    
+    fprintf(f, "\n");
+    
+    for(int i = 0; i < length; i++)
+    {
+        printf("%d",parent[i]);
+    }
+    
+    printf("\n");
+    
+    for(int i = 0; i<height; i++)
+    {
+        for(int i = 0; i < length; i++)
+        {
+            int left = parent[i-1];
+            int middle = parent[i];
+            int right = parent[i+1];
+            int newstate = rules(left,middle,right);
+            child[i] = newstate;
+        }
+        
+        for(int i = 0; i < length; i++)
+        {
+            printf("%d",child[i]);
+        }
+        printf("\n");
+        
+        //Print the child
+        for(int i = 0; i < length; i++)
+        {
+            fprintf(f, "%d", child[i]);
+        }
+        
+        fprintf(f, "\n");
+        
+        for(int i = 0; i<length; i++)
+        {
+            parent[i] = child[i];
+        }
+        
+    }
+    
+}
